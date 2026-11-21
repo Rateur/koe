@@ -1,0 +1,26 @@
+{
+  "name": "koe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "check": "tsc",
+    "test": "vitest run",
+    "lint": "eslint ."
+  },
+  "description": "Speak, and get a prompt Claude understands.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}
