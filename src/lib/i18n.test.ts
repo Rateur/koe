@@ -15,7 +15,8 @@ describe('words', () => {
   })
 
   it('keeps French spacing: no plain space before : ; ! ? % » or after «', () => {
-    const french = Object.values(words.fr).join('\n').replace(/<[^>]+>/g, '')
+    // Markup and the example's ??doubtful?? marker aren't French text.
+    const french = Object.values(words.fr).join('\n').replace(/<[^>]+>|\?\?[^?]+\?\?/g, '')
     expect(french).not.toMatch(/ [:;!?%»]|« /)
   })
 
