@@ -87,9 +87,9 @@ Ajoute une page des convocations sur le modèle de src/pages/matchs.tsx.
 
   proofTitle: 'Testé à l’aveugle',
   proof1Figure: '8 sur 12',
-  proof1Text: 'notes vocales où un juge, sans savoir d’où venait chaque prompt, a préféré la réponse obtenue avec celui de Koe.',
+  proof1Text: 'notes vocales où un juge à l’aveugle a préféré la réponse obtenue avec Koe. En face, la note brute n’avait pas le droit de poser de questions.',
   proof2Figure: '4 sur 4',
-  proof2Text: 'Chaque fois que Koe a posé ses questions, sa réponse l’a emporté.',
+  proof2Text: 'Chaque fois que Koe a posé ses questions, sa réponse l’a emporté. Sur les 8 autres notes, sans questions : égalité, 4 partout.',
   proof3Figure: '12 sur 12',
   proof3Text: 'corrections dites à voix haute bien reprises, comme « 20 %, non, 10 % ».',
   proof4Figure: '94 %',
@@ -217,9 +217,9 @@ Add a call-ups page built like src/pages/matches.tsx.
 
   proofTitle: 'Tested blind',
   proof1Figure: '8 of 12',
-  proof1Text: 'voice notes where a judge, not knowing where each prompt came from, preferred the answer to Koe’s.',
+  proof1Text: 'voice notes where a blind judge preferred the answer to Koe’s prompt. The raw note, on the other side, wasn’t allowed to ask questions.',
   proof2Figure: '4 of 4',
-  proof2Text: 'Every time Koe asked its questions, its answer won.',
+  proof2Text: 'Every time Koe asked its questions, its answer won. On the other 8 notes, without questions: a tie, 4 each.',
   proof3Figure: '12 of 12',
   proof3Text: 'corrections said out loud were kept, like “20%, no, 10%”.',
   proof4Figure: '94%',
