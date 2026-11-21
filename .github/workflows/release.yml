@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Draft the release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check the tag matches the version, read the notes
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          [ "$version" = "$(node -p "require('./package.json').version")" ] || { echo "::error::Tag $GITHUB_REF_NAME doesn't match package.json"; exit 1; }
+          awk -v v="[$version]" '/^## \[/ { p = index($0, v) > 0; next } /^\[/ { p = 0 } p' CHANGELOG.md > notes.md
+          grep -q '[^[:space:]]' notes.md || { echo "::error::No CHANGELOG.md section for $version"; exit 1; }
+
+      # claude.ai wants the skill's folder at the top of the zip, named like the skill: koe.zip > koe/SKILL.md.
+      - name: Zip the skill
+        run: cd plugins/koe/skills && zip -r ../../../koe.zip koe
+
+      - name: Draft the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "$GITHUB_REF_NAME" koe.zip --draft --verify-tag --title "Koe $GITHUB_REF_NAME" --notes-file notes.md
