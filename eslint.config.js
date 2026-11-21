@@ -8,4 +8,6 @@ export default defineConfig(
   js.configs.recommended,
   ts.configs.recommended,
   { languageOptions: { globals: globals.browser } },
+  // French text needs no-break spaces before : ; ! ? % and inside « », including in multiline strings.
+  { rules: { 'no-irregular-whitespace': ['error', { skipStrings: true, skipTemplates: true }] } },
 )

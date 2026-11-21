@@ -5,7 +5,7 @@ Koe's rules are in [CONTRIBUTING](.github/CONTRIBUTING.md): start with [How the 
 Pull requests target `dev`, from a `type/what` branch such as `fix/trigger-in-french`, with a [Conventional Commit](https://www.conventionalcommits.org) title. Before you finish, run what CI runs:
 
 ```bash
-npm run lint && npm run check && npm test
+npm run lint && npm run check && npm test && npm run build
 claude plugin validate .
 ```
 
@@ -13,7 +13,8 @@ A release does more: follow [docs/releasing.md](docs/releasing.md).
 
 Never:
 
-- Keep a second copy of the skill's rules. `skills/koe/SKILL.md` is the only one.
+- Keep a second copy of the skill's rules. `skills/koe/SKILL.md` is the only one; the site imports it.
 - Rename the skill, or move it out of `skills/koe/`: installs and the release zip depend on the folder name matching `name: koe`.
-- Add a dependency, a network request or tracking without agreeing on it first.
+- Change one language alone: `README.md` and `README.fr.md`, and the French and English words in `src/lib/i18n.ts`, change together.
+- Add a dependency, a network request or tracking to the site.
 - Push to `main`.

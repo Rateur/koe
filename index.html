@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="title"></title>
+    <meta name="description" data-i18n-content="description" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/recursive-koe.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content="Koe" />
+    <meta property="og:description" data-i18n-content="description" />
+    <meta property="og:image" content="https://koe.rateur.fr/og.png" />
+    <meta property="og:url" content="https://koe.rateur.fr/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <header class="top">
+      <a class="mark" href="/"><svg viewBox="150 217 724 590" aria-hidden="true"><path fill="currentColor" d="M292 432H732A80 80 0 0 1 732 592H292A80 80 0 0 1 292 432ZM502.76 368L471.29 313.49A192 192 0 0 0 169.25 273.72A64 64 0 0 0 169.25 364.23A64 64 0 0 0 259.76 364.23A64 64 0 0 1 353.74 368ZM521.24 656L552.71 710.51A192 192 0 0 0 854.75 750.28A64 64 0 0 0 854.75 659.77A64 64 0 0 0 764.24 659.77A64 64 0 0 1 670.26 656Z" /></svg>koe</a>
+      <nav class="corner">
+        <a href="https://github.com/Rateur/koe">GitHub</a>
+        <button class="lang" type="button" data-i18n="switchLang" data-i18n-label="switchLangLabel"></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="column">
+          <h1 data-i18n-html="heroTitleHtml"></h1>
+          <p class="lede" data-i18n="heroLede"></p>
+          <p class="actions">
+            <a class="button" href="#install" data-i18n="heroInstall"></a>
+            <a class="text-link" href="#try" data-i18n="heroTry"></a>
+          </p>
+        </div>
+      </section>
+
+      <!-- The try box is the demonstration that peeks in under the hero. -->
+      <section id="try" class="try" aria-labelledby="try-title">
+        <div class="stage">
+          <h2 id="try-title" data-i18n="tryTitle"></h2>
+          <div class="composer" data-ui>
+            <label for="voice-note" data-i18n="noteLabel"></label>
+            <textarea id="voice-note" rows="7" data-i18n-placeholder="notePlaceholder"></textarea>
+            <p class="hint" data-i18n="hint"></p>
+            <div class="composer-bar">
+              <button class="quiet" type="button" id="sample" data-i18n="useSample"></button>
+              <button class="ghost" type="button" id="copy" data-i18n="copyOther"></button>
+              <a class="send" id="open" href="https://claude.ai/new" target="_blank" rel="noopener" data-i18n="openClaude"></a>
+            </div>
+          </div>
+          <p class="status" id="try-status" role="status"></p>
+        </div>
+        <figure class="storyteller">
+          <img src="/images/rakugo.jpg" width="691" height="1101" alt="" loading="lazy" />
+          <figcaption data-i18n="rakugoCaption"></figcaption>
+        </figure>
+      </section>
+
+      <section class="show" aria-labelledby="show-title">
+        <h2 id="show-title" data-i18n="showTitle"></h2>
+        <div class="row" tabindex="0" aria-describedby="show-name">
+          <div class="slot" data-step="1">
+            <div class="chat" data-ui>
+              <p class="chat-top" data-i18n="chatNew"></p>
+              <p class="bubble said" data-monologue="plain"></p>
+              <p class="recording" aria-hidden="true"><span class="dot"></span>2:47</p>
+            </div>
+          </div>
+          <div class="slot" data-step="2">
+            <div class="chat" data-ui>
+              <p class="chat-top" data-i18n="chatNew"></p>
+              <div class="reply" data-i18n-html="questionsHtml"></div>
+              <p class="bubble" data-i18n="chatAnswer"></p>
+            </div>
+          </div>
+          <div class="slot" data-step="3">
+            <div class="chat" data-ui>
+              <div class="code-card">
+                <p class="code-head"><span>xml</span><span data-i18n="chatCopy"></span></p>
+                <pre><code data-prompt="prompt" data-lines="1-11"></code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="slot" data-step="4">
+            <div class="chat" data-ui>
+              <div class="code-card short">
+                <p class="code-head"><span>xml</span><span data-i18n="chatCopy"></span></p>
+                <pre><code data-prompt="prompt" data-lines="1-3"></code></pre>
+              </div>
+              <p class="reply" data-i18n="checkLine"></p>
+            </div>
+          </div>
+          <div class="slot" data-step="5">
+            <div class="chat" data-ui>
+              <p class="reply" data-i18n="launch"></p>
+              <p class="bubble" data-i18n="chatGo"></p>
+            </div>
+          </div>
+          <div class="slot" data-step="6">
+            <div class="term" data-ui>
+              <p class="term-in" data-i18n="codeAsk"></p>
+              <pre><code data-prompt="codeReply"></code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="caption" id="show-name" aria-live="polite">
+          <p class="name"></p>
+          <p class="text"></p>
+        </div>
+      </section>
+
+      <section class="stages" aria-labelledby="stage-title">
+        <div class="clause">
+          <h2 id="stage-title" aria-live="polite"></h2>
+        </div>
+        <div class="field">
+          <div class="note" data-ui data-stage="1">
+            <p class="said" data-monologue="staged"></p>
+            <div class="asked">
+              <div class="reply" data-i18n-html="questionsHtml"></div>
+              <p class="bubble" data-i18n="chatAnswer"></p>
+            </div>
+            <pre class="got"><code data-prompt="prompt"></code></pre>
+          </div>
+        </div>
+        <div class="track">
+          <label class="visually-hidden" for="stage" data-i18n="stageLabel"></label>
+          <input id="stage" type="range" min="1" max="4" step="1" value="1" />
+          <ol class="stops">
+            <li data-i18n="stage1Name"></li>
+            <li data-i18n="stage2Name"></li>
+            <li data-i18n="stage3Name"></li>
+            <li data-i18n="stage4Name"></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="proof" aria-labelledby="proof-title">
+        <div class="board">
+          <h2 class="tile lead" id="proof-title" data-i18n="proofTitle"></h2>
+          <div class="tile"><p class="figure" data-i18n="proof1Figure"></p><p data-i18n="proof1Text"></p></div>
+          <div class="tile"><p class="figure" data-i18n="proof2Figure"></p><p data-i18n="proof2Text"></p></div>
+          <div class="tile"><p class="figure" data-i18n="proof3Figure"></p><p data-i18n="proof3Text"></p></div>
+          <figure class="tile pictures">
+            <div class="fade">
+              <img class="on" src="/images/stenotype.jpg" width="1100" height="1478" alt="" loading="lazy" />
+              <img src="/images/stenograph.jpg" width="1100" height="1467" alt="" loading="lazy" />
+              <img class="plate" src="/images/duploye.png" width="1920" height="522" alt="" loading="lazy" />
+            </div>
+            <figcaption data-i18n="picturesCaption"></figcaption>
+          </figure>
+          <div class="tile"><p class="figure" data-i18n="proof4Figure"></p><p data-i18n="proof4Text"></p></div>
+          <div class="tile"><p data-i18n-html="proofRulesHtml"></p></div>
+          <div class="tile"><p data-i18n-html="proofMethodHtml"></p></div>
+        </div>
+      </section>
+
+      <section id="install" class="install" aria-labelledby="install-title">
+        <div class="steps">
+          <h2 id="install-title" data-i18n="installTitle"></h2>
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" id="tab-paid" aria-controls="panel-paid" aria-selected="true" data-i18n="tabPaid"></button>
+            <button type="button" role="tab" id="tab-free" aria-controls="panel-free" aria-selected="false" tabindex="-1" data-i18n="tabFree"></button>
+            <button type="button" role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1" data-i18n="tabCode"></button>
+          </div>
+          <div role="tabpanel" id="panel-paid" aria-labelledby="tab-paid" data-i18n-html="paidStepsHtml"></div>
+          <div role="tabpanel" id="panel-free" aria-labelledby="tab-free" data-i18n-html="freeStepsHtml" hidden></div>
+          <div role="tabpanel" id="panel-code" aria-labelledby="tab-code" data-i18n-html="codeStepsHtml" hidden></div>
+          <p class="after" data-i18n-html="afterInstallHtml"></p>
+        </div>
+        <div class="screen">
+          <div class="dialog" data-ui data-for="panel-paid">
+            <p class="dialog-title" data-i18n="dialogTitle"></p>
+            <p class="dialog-label" data-i18n="dialogLabel"></p>
+            <p class="field-row"><code>Rateur/koe</code><button type="button" data-copy="Rateur/koe" data-i18n="copy"></button></p>
+            <p class="dialog-actions"><span data-i18n="dialogCancel"></span><span class="add" data-i18n="dialogAdd"></span></p>
+          </div>
+          <div class="dialog" data-ui data-for="panel-free" hidden>
+            <p class="dialog-title">koe.zip</p>
+            <p class="dialog-label">koe/SKILL.md, koe/references/examples.md</p>
+            <p class="dialog-actions"><a class="add" href="https://github.com/Rateur/koe/releases/latest/download/koe.zip" data-i18n="download"></a></p>
+          </div>
+          <div class="term" data-ui data-for="panel-code" hidden>
+            <p class="field-row"><code>/plugin install koe --marketplace Rateur/koe</code><button type="button" data-copy="/plugin install koe --marketplace Rateur/koe" data-i18n="copy"></button></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="tile statement">
+        <p class="big" data-i18n="footStatement"></p>
+        <p class="small" data-i18n="footSmall"></p>
+      </div>
+      <nav class="tile links">
+        <a href="https://github.com/Rateur/koe" data-i18n="navSource"></a>
+        <a href="https://github.com/Rateur/koe#readme" data-i18n="navReadme"></a>
+        <a href="https://github.com/Rateur/koe/blob/main/LICENSE" data-i18n="navLicense"></a>
+      </nav>
+      <div class="tile legal" id="legal">
+        <h2 data-i18n="legalTitle"></h2>
+        <p data-i18n="legalText"></p>
+      </div>
+      <div class="tile mail">
+        <h2 data-i18n="contactLabel"></h2>
+        <a href="mailto:contact@rateur.fr">contact@rateur.fr</a>
+      </div>
+      <div class="tile word"><!--LOCKUP--></div>
+      <a class="tile go" href="#install">
+        <span data-i18n="footInstall"></span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 38 38 10M16 10h22v22" fill="none" stroke="currentColor" stroke-width="4" /></svg>
+      </a>
+      <div class="tile data">
+        <h2 data-i18n="privacyTitle"></h2>
+        <p data-i18n="privacyText"></p>
+      </div>
+      <div class="tile credits">
+        <h2 data-i18n="creditsTitle"></h2>
+        <p data-i18n-html="creditsHtml"></p>
+      </div>
+    </footer>
+  </body>
+</html>
