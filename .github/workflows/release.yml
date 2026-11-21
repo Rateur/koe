@@ -23,7 +23,7 @@ jobs:
 
       # claude.ai wants the skill's folder at the top of the zip, named like the skill: koe.zip > koe/SKILL.md.
       - name: Zip the skill
-        run: cd skills && zip -r ../koe.zip koe
+        run: cd plugins/koe/skills && zip -r ../../../koe.zip koe
 
       - name: Draft the release
         env:
