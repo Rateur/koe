@@ -942,6 +942,7 @@ figcaption {
 @media (max-width: 59.99rem) {
   .board {
     grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
     gap: 6px;
     padding: 72px var(--margin);
   }
@@ -1257,7 +1258,12 @@ figcaption {
 @media (max-width: 59.99rem) {
   .foot {
     grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
     gap: 6px;
+  }
+
+  .mail a {
+    font-size: var(--t2);
   }
 
   .foot .tile {
@@ -1269,6 +1275,8 @@ figcaption {
   .foot .word,
   .foot .go,
   .foot .statement,
+  .foot .links,
+  .foot .mail,
   .foot .legal,
   .foot .data,
   .foot .credits {
