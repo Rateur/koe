@@ -1,9 +1,15 @@
 // What the page does with the skill: the text to paste into any chat, and the link that opens Claude.
 
-// The skill's instructions without the frontmatter, and without the pointer to files only an installed skill has.
+// A section the site leaves out: a note pasted from the site always arrives whole, and never in Claude Code.
+const LIVE_ONLY = '## When the note comes in parts'
+
+// The skill's instructions without the frontmatter, the live-only section, or the pointer to files only an installed skill has.
 export function skillBody(skill: string): string {
   return skill
     .replace(/^---\n[\s\S]*?\n---\n/, '')
+    .split(/\n(?=## )/)
+    .filter((section) => !section.startsWith(LIVE_ONLY))
+    .join('\n')
     .split('\n')
     .filter((line) => !line.includes('](references/'))
     .join('\n')

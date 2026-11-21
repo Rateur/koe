@@ -14,6 +14,19 @@ describe('skillBody', () => {
     expect(body).not.toContain('name: koe')
     expect(body).not.toContain('references/')
   })
+
+  it('leaves out what only happens in a live chat, and keeps what follows it', () => {
+    const body = skillBody('# Koe\n\n## A\n\nKept.\n\n## When the note comes in parts, and in Claude Code\n\n- Dropped.\n\n## B\n\nAlso kept.')
+    expect(body).toBe('# Koe\n\n## A\n\nKept.\n\n## B\n\nAlso kept.')
+    expect(skillBody(skill)).not.toContain('je continue')
+  })
+
+  // The one-tap link holds about 14,000 characters: the skill must leave room for a two-minute note.
+  it('leaves room in the link for a 200-word French note', () => {
+    const note = 'bon alors mon projet c’est une appli pour le club de foot de mon fils, '.repeat(14)
+    expect(note.split(' ').length).toBeGreaterThan(200)
+    expect(claudeLink(handoff(skillBody(skill), note))).not.toBe('https://claude.ai/new')
+  })
 })
 
 describe('handoff', () => {
