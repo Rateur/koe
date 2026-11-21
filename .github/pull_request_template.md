@@ -5,7 +5,7 @@
 ## How to test
 
 - [ ] One change
-- [ ] Lint, type check, tests and build pass; `claude plugin validate .` passes when the skill or plugin files changed
+- [ ] Lint, type check, tests and build pass; both `claude plugin validate` commands from AGENTS.md pass when the plugin changed
 - [ ] It reads like the code around it: same naming, short comments that say why, no dead code or `TODO` (a known limit gets `// shortcut:`)
 - [ ] A change users can see updates the README and the site, in English and French
 - [ ] No new dependency, network request or tracking
