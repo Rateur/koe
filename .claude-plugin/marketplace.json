@@ -1,0 +1,17 @@
+{
+  "name": "koe",
+  "owner": {
+    "name": "Valentin PÉRIÈS",
+    "url": "https://github.com/Rateur"
+  },
+  "metadata": {
+    "description": "Koe turns a dictated voice note into a prompt Claude understands."
+  },
+  "plugins": [
+    {
+      "name": "koe",
+      "source": "./",
+      "description": "Dictate a request the way it comes to you; Koe turns it into a structured XML prompt for Claude and asks a few questions first when something important is missing."
+    }
+  ]
+}
