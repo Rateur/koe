@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 // What claude.ai and the other agents check when they load a skill: https://agentskills.io/specification
 const read = (path: string) => readFileSync(new URL(`../../${path}`, import.meta.url), 'utf8')
-const skill = read('skills/koe/SKILL.md')
+const skill = read('plugins/koe/skills/koe/SKILL.md')
 const [, frontmatter = '', body = ''] = skill.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? []
 const field = (name: string) => frontmatter.match(new RegExp(`^${name}: (.*)$`, 'm'))?.[1] ?? ''
 
@@ -24,16 +24,23 @@ describe('the koe skill', () => {
 
   it('points only to files that exist', () => {
     for (const [, path] of body.matchAll(/\]\(([^)]+)\)/g)) {
-      if (!path.startsWith('http')) expect(existsSync(new URL(`../../skills/koe/${path}`, import.meta.url)), path).toBe(true)
+      if (!path.startsWith('http')) expect(existsSync(new URL(`../../plugins/koe/skills/koe/${path}`, import.meta.url)), path).toBe(true)
     }
   })
 
   it('ships as a plugin with the same version as the site', () => {
-    const plugin = JSON.parse(read('.claude-plugin/plugin.json'))
+    const plugin = JSON.parse(read('plugins/koe/.claude-plugin/plugin.json'))
     const marketplace = JSON.parse(read('.claude-plugin/marketplace.json'))
     const pkg = JSON.parse(read('package.json'))
     expect(plugin.name).toBe('koe')
     expect(plugin.version).toBe(pkg.version)
     expect(marketplace.plugins.map((p: { name: string }) => p.name)).toEqual(['koe'])
+  })
+
+  // Claude Code copies the plugin folder into every install, and runs npm there when it finds a package.json.
+  it('installs from a folder that holds only the plugin', () => {
+    const marketplace = JSON.parse(read('.claude-plugin/marketplace.json'))
+    expect(marketplace.plugins[0].source).toBe('./plugins/koe')
+    expect(existsSync(new URL('../../plugins/koe/package.json', import.meta.url))).toBe(false)
   })
 })

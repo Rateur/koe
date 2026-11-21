@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import skill from '../../skills/koe/SKILL.md?raw'
+import skill from '../../plugins/koe/skills/koe/SKILL.md?raw'
 import { claudeLink, excerpt, handoff, highlight, skillBody, spoken } from './prompt'
 
 describe('skillBody', () => {

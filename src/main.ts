@@ -1,5 +1,5 @@
 import './style.css'
-import skill from '../skills/koe/SKILL.md?raw'
+import skill from '../plugins/koe/skills/koe/SKILL.md?raw'
 import { pageLang, words, type Key, type Lang } from './lib/i18n'
 import { claudeLink, excerpt, handoff, highlight, skillBody, spoken } from './lib/prompt'
 
