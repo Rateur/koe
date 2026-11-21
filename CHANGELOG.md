@@ -2,6 +2,18 @@
 
 What changes in each version of Koe, written for the people who use it. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-11-21
+
+### Changed
+
+- The site's test figures come from a fairer rerun, where the raw note could ask questions too and every note ran three times: Koe's prompt won 19 times, lost 10 and tied 7 out of 36. Every time Koe asked its questions, its answer won. The method and its limits are in [evals/](https://github.com/Rateur/koe/tree/main/evals).
+
+### Known limits
+
+- The test notes were written for the test, not dictated, and none of the overall differences is statistically solid yet.
+- From about 580 words, a note no longer fits in the link that opens Claude from the site, so Claude opens empty. The site copies your note first: paste it.
+- Installing from the Claude phone app hasn't been checked. Install from a computer, and Koe then works on your phone.
+
 ## [0.1.0] - 2026-11-21
 
 The first version.
@@ -23,4 +35,5 @@ The first version.
 - From about 580 words, a note no longer fits in the link that opens Claude from the site, so Claude opens empty. The site copies your note first: paste it.
 - Installing from the Claude phone app hasn't been checked. Install from a computer, and Koe then works on your phone.
 
+[0.1.1]: https://github.com/Rateur/koe/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Rateur/koe/releases/tag/v0.1.0
