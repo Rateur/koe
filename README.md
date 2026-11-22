@@ -76,6 +76,6 @@ Koe is open source but not open to contributions, so fork it and make it yours. 
 
 ## License
 
-[MIT](LICENSE). The pictures on the site are credited in its footer.
+[MIT](LICENSE). The site's typeface, Recursive by Arrow Type, is under the [SIL Open Font License](public/fonts/OFL.txt).
 
 If Koe helps you, a star helps other people find it.

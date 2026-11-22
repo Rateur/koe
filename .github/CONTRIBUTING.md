@@ -17,8 +17,8 @@ Pull requests into `dev` are squash-merged, so the PR title becomes the commit m
 - `plugins/koe/` is the plugin, and the only folder users install: its manifest in `.claude-plugin/plugin.json`, its icon, the README the plugin directory shows, and the skill.
 - `plugins/koe/skills/koe/SKILL.md` is the skill, and the single source of its rules. `references/examples.md` next to it holds the before and after examples the skill reads when it needs them.
 - `.claude-plugin/marketplace.json` makes the repository a plugin marketplace, so Claude and Claude Code can install Koe from its GitHub link. It points to `plugins/koe`, so the site's files and npm packages stay out of installs.
-- `index.html`, `src/main.ts` and `src/style.css` are the site. It imports `SKILL.md` at build time, so the text it copies for other chats is always the skill's. `vite.config.ts` fills the page with its French words at build time.
-- `src/lib/prompt.ts` builds that text and the link that opens Claude. `src/lib/i18n.ts` holds the site's words in French and English. `src/lib/skill.test.ts` checks the skill the way agents load it.
+- `index.html`, `src/main.ts` and `src/style.css` are the site, and `src/scene/` draws its 3D tape with Three.js. It imports `SKILL.md` at build time, so the text it copies for other chats is always the skill's. `vite.config.ts` fills the page with its French words at build time.
+- `src/lib/prompt.ts` builds that text and the link that opens Claude. `src/lib/i18n.ts` holds the site's words in French and English, `src/lib/proof.ts` the blind test's figures from `evals/README.md`, and `src/lib/page.ts` builds the page's parts from both. `src/lib/skill.test.ts` checks the skill the way agents load it.
 - `.github/workflows/`: `ci.yml` checks every pull request, `site.yml` publishes the site from `main`, and `release.yml` drafts a release with `koe.zip` from a version tag.
 
 ## Before you push

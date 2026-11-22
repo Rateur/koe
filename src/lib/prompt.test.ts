@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import skill from '../../plugins/koe/skills/koe/SKILL.md?raw'
-import { claudeLink, excerpt, handoff, highlight, skillBody, spoken } from './prompt'
+import { claudeLink, handoff, highlight, skillBody, spoken, wrapPrompt } from './prompt'
 
 describe('skillBody', () => {
   it('drops the frontmatter and the pointer to the references', () => {
@@ -48,10 +48,18 @@ describe('highlight', () => {
   })
 })
 
-describe('excerpt', () => {
-  it('keeps the lines asked for, or everything', () => {
-    expect(excerpt('a\nb\nc\nd', '2-3')).toBe('b\nc')
-    expect(excerpt('a\nb')).toBe('a\nb')
+describe('wrapPrompt', () => {
+  it('cuts long lines at spaces and indents a list item under its text', () => {
+    const lines = wrapPrompt('<task>\n- one two three four\n</task>', 10)
+    expect(lines.map((line) => line.text)).toEqual(['<task>', '- one two', '  three', '  four', '</task>'])
+  })
+
+  it('keeps the tags apart from the text', () => {
+    expect(wrapPrompt('<task>Plan</task>', 80)[0].segs).toEqual([
+      { text: '<task>', tag: true },
+      { text: 'Plan', tag: false },
+      { text: '</task>', tag: true },
+    ])
   })
 })
 
