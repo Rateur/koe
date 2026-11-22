@@ -39,11 +39,33 @@ export function highlight(prompt: string): string {
   return escapeHtml(prompt).replace(/&lt;\/?[a-z][\w-]*(?:\s.*?)?&gt;/gi, (tag) => `<span class="tag">${tag}</span>`)
 }
 
-// The first lines of a prompt, for a fragment that only shows its top: `lines` is like "1-7".
-export function excerpt(text: string, lines?: string): string {
-  if (!lines) return text
-  const [from, to] = lines.split('-').map(Number)
-  return text.split('\n').slice(from - 1, to).join('\n')
+export interface PromptLine {
+  text: string
+  segs: { text: string; tag: boolean }[]
+}
+
+// A prompt cut at spaces into lines of at most `cols` characters, one per strip of tape; a list item's next lines are indented.
+// Each line keeps its tags apart, so the 3D tape can print them in graphite.
+export function wrapPrompt(prompt: string, cols: number): PromptLine[] {
+  const lines: string[] = []
+  for (const source of prompt.split('\n')) {
+    if (source.length <= cols) {
+      lines.push(source)
+      continue
+    }
+    const indent = source.startsWith('- ') ? '  ' : ''
+    let line = ''
+    for (const word of source.split(' ')) {
+      const next = line ? `${line} ${word}` : word
+      if (next.length > cols && line) {
+        lines.push(line)
+        line = indent + word
+      } else line = next
+    }
+    if (line) lines.push(line)
+  }
+  const tag = /^<\/?[a-z_]+>$/
+  return lines.map((text) => ({ text, segs: text.split(/(<\/?[a-z_]+>)/).filter(Boolean).map((part) => ({ text: part, tag: tag.test(part) })) }))
 }
 
 // The site's example monologue: ~~struck~~ and ??doubtful?? words, either marked or as they were dictated.

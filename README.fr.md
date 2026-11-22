@@ -76,6 +76,6 @@ Koe est open source mais n’accepte pas de contributions : forke-le et fais-en 
 
 ## Licence
 
-[MIT](LICENSE). Les images du site sont créditées dans son pied de page.
+[MIT](LICENSE). La police du site, Recursive d’Arrow Type, est sous [licence SIL Open Font License](public/fonts/OFL.txt).
 
 Si Koe t’aide, une étoile aide d’autres personnes à le trouver.

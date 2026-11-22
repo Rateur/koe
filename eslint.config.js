@@ -4,8 +4,8 @@ import globals from 'globals'
 import ts from 'typescript-eslint'
 
 export default defineConfig(
-  // The eval harness runs as a Claude Code workflow, with that runtime's own globals.
-  { ignores: ['dist/', 'evals/*.workflow.js'] },
+  // The eval harness runs as a Claude Code workflow, with that runtime's own globals. .taste-skill/ holds design drafts, out of git.
+  { ignores: ['dist/', 'evals/*.workflow.js', '.taste-skill/'] },
   js.configs.recommended,
   ts.configs.recommended,
   { languageOptions: { globals: globals.browser } },

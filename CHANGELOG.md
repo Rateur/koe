@@ -2,6 +2,21 @@
 
 What changes in each version of Koe, written for the people who use it. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] - 2026-11-22
+
+### Changed
+
+- The site is one scroll along a strip of paper tape printed with a dictated note: Koe cuts out the fillers, corrects the misheard name, asks its questions, and the tape lands as the prompt Claude gets, ready to copy. If you ask your device for less motion, the tape holds still at each step; without WebGL, the steps read as text.
+- The blind test is one figure: each of the 36 runs is a hole punched in the tape, next to both average scores and their 95 % intervals.
+
+### Fixed
+
+- On the site, a French question mark no longer sticks to the word before it.
+
+### Removed
+
+- The site's pictures of a rakugo storyteller and of old shorthand machines.
+
 ## [0.1.1] - 2026-11-21
 
 ### Changed
@@ -35,5 +50,7 @@ The first version.
 - From about 580 words, a note no longer fits in the link that opens Claude from the site, so Claude opens empty. The site copies your note first: paste it.
 - Installing from the Claude phone app hasn't been checked. Install from a computer, and Koe then works on your phone.
 
+[Unreleased]: https://github.com/Rateur/koe/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/Rateur/koe/releases/tag/v0.1.2
 [0.1.1]: https://github.com/Rateur/koe/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Rateur/koe/releases/tag/v0.1.0
