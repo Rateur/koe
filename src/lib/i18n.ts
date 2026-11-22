@@ -3,7 +3,7 @@
 // {name} is filled in: with the blind test's figures and the example's length (page.ts), or by main.ts as the story plays.
 
 const fr = {
-  title: 'Koe · ta note vocale devient un prompt pour Claude',
+  title: 'Koe, ta note vocale devient un prompt pour Claude',
   description: 'Un skill gratuit pour Claude. Raconte ton projet en vrac : Koe le range et te demande ce qui manque avant d’écrire le prompt.',
   homeLabel: 'Koe, accueil',
   navInstall: 'Installer',
@@ -15,7 +15,7 @@ const fr = {
   heroLede: 'Koe est un skill gratuit pour Claude. Il range ta note vocale et te demande ce qui manque avant d’écrire.',
   heroInstall: 'Installer Koe',
   heroTry: 'Essayer sans installer',
-  noteWords: 'note vocale · {words} mots',
+  noteWords: 'note vocale de {words} mots',
 
   storyLabel: 'Ce que Koe fait de ta note',
   step1Title: 'D’abord, tu parles.',
@@ -126,7 +126,7 @@ Un plan par étapes jusqu’à septembre. Après le plan, ajoute ce à quoi je n
 type Words = typeof fr
 
 const en: Words = {
-  title: 'Koe · your voice note becomes a prompt for Claude',
+  title: 'Koe: your voice note becomes a prompt for Claude',
   description: 'A free skill for Claude. Talk through your project however it comes out: Koe sorts it and asks what’s missing before it writes the prompt.',
   homeLabel: 'Koe, home',
   navInstall: 'Install',
@@ -138,7 +138,7 @@ const en: Words = {
   heroLede: 'Koe is a free skill for Claude. It tidies your voice note and asks what’s missing before it writes.',
   heroInstall: 'Install Koe',
   heroTry: 'Try without installing',
-  noteWords: 'voice note · {words} words',
+  noteWords: 'a {words}-word voice note',
 
   storyLabel: 'What Koe does with your note',
   step1Title: 'First, you talk.',
